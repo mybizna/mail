@@ -1,11 +1,10 @@
 {
-    "name": "Base",
-    "alias": "base",
+    "name": "Mail",
+    "alias": "mail",
     "description": "",
     "keywords": [],
     "priority": 0,
     "providers": [
-        "Modules\\Base\\Providers\\BaseServiceProvider"
     ],
     "aliases": {},
     "files": [],
