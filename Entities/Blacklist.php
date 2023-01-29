@@ -8,8 +8,8 @@ use Illuminate\Database\Schema\Blueprint;
 class Blacklist extends BaseModel
 {
 
-    protected $fillable = ['name'];
-    public $migrationDependancy = [];
+    protected $fillable = ['contact_id'];
+    public $migrationDependancy = ['mail_contact'];
     protected $table = "mail_blacklist";
 
     /**
@@ -21,6 +21,13 @@ class Blacklist extends BaseModel
     public function migration(Blueprint $table)
     {
         $table->increments('id');
-        $table->string('name');
+        $table->integer('contact_id');
+    }
+
+    public function post_migration(Blueprint $table)
+    {
+        if (Migration::checkKeyExist('mail_blacklist', 'contact_id')) {
+            $table->foreign('contact_id')->references('id')->on('mail_contact')->nullOnDelete();
+        }
     }
 }
