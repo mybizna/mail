@@ -10,7 +10,7 @@ class Contact extends BaseModel
 
     protected $fillable = ['name'];
     public $migrationDependancy = [];
-    protected $table = "mail_subscriber";
+    protected $table = "mail_contact";
 
     /**
      * List of fields for managing postings.
