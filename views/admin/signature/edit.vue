@@ -5,7 +5,7 @@
 <script>
 export default {
     components: {
-        customform: window.$func.fetchComponent(["mail", "theme", "form.vue"])
+        customform: window.$func.fetchComponent(["mail", "signature", "form.vue"])
     },
 };
 </script>

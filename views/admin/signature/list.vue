@@ -12,23 +12,23 @@ export default {
     },
     data () {
         return {
-            path_param: ["mail", "contact"],
+            path_param: ["mail", "signature"],
             model: {
                 id: "",
-                name: "",
-                email: "",
+                title: "",
+                signature: "",
                 ordering: "",
                 published: "",
             },
             search_fields: [
-                { type: "text", name: "name", label: "Name", ope: "", },
-                { type: "text", name: "email", label: "Email", ope: "", },
+                { type: "text", name: "title", label: "Title", ope: "", },
+                { type: "text", name: "signature", label: "Signature", ope: "", },
                 { type: "text", name: "ordering", label: "Ordering", ope: "", },
                 { type: "text", name: "published", label: "Published", ope: "", },
             ],
             table_fields: [
-                { text: "Name", prop: "name", name: "name", },
-                { text: "Email", prop: "email", name: "email", },
+                { text: "Title", prop: "title", name: "title", },
+                { text: "Signature", prop: "signature", name: "signature", },
                 { text: "Ordering", prop: "ordering", name: "ordering", },
                 { text: "Published", prop: "published", name: "published", },
             ],

@@ -1,6 +1,6 @@
 
 <template>
-    <table-list title="Isp Subscriber" :path_param="path_param" :search_fields="search_fields" :model="model"
+    <table-list title="Mail Whitelist" :path_param="path_param" :search_fields="search_fields" :model="model"
         :table_fields="table_fields"></table-list>
 </template>
 
@@ -10,29 +10,22 @@ export default {
     components: {
         TableList: window.$func.fetchComponent("components/common/TableList.vue")
     },
-    data () {
+    data() {
         return {
-            path_param: ["isp", "subscriber"],
+            path_param: ["mail", "whitelist"],
             model: {
                 id: "",
-                username: "",
-                password: "",
-                partner_id: "",
+                contact_id: "",
             },
             search_fields: [
-                { type: "text", name: "username", label: "Username", ope: "", },
-                { type: "select", name: "partner_id", label: "Partner", ope: "", },
+                { type: "select", name: "contact_id", label: "Contact", ope: "", },
             ],
-            username: "",
-                password: "",
-                partner_id: "",
             table_fields: [
-                { text: "Username", prop: "username", name: "username", },
-                { 
-                    text: "Invoice", 
-                    prop: "[partner__first_name] [partner__last_name]", 
-                    name: "partner_id", 
-                    foreign: ['partner__first_name','partner__last_name',]
+                {
+                    text: "Contact",
+                    prop: "[mail_contact__name] [mail_contact__email]",
+                    name: "partner_id",
+                    foreign: ['mail_contact__name', 'mail_contact__email',]
                 },
             ],
         };

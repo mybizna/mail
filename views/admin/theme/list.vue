@@ -1,6 +1,6 @@
 
 <template>
-    <table-list title="Isp Subscriber" :path_param="path_param" :search_fields="search_fields" :model="model"
+    <table-list title="Mail Theme" :path_param="path_param" :search_fields="search_fields" :model="model"
         :table_fields="table_fields"></table-list>
 </template>
 
@@ -12,28 +12,26 @@ export default {
     },
     data () {
         return {
-            path_param: ["isp", "subscriber"],
+            path_param: ["mail", "theme"],
             model: {
                 id: "",
-                username: "",
-                password: "",
-                partner_id: "",
+                title: "",
+                file_name: "",
+                body: "",
+                is_file: "",
+                is_default: "",
             },
             search_fields: [
-                { type: "text", name: "username", label: "Username", ope: "", },
-                { type: "select", name: "partner_id", label: "Partner", ope: "", },
+                { type: "text", name: "title", label: "Title", ope: "", },
+                { type: "text", name: "file_name", label: "File Name", ope: "", },
+                { type: "text", name: "is_file", label: "Is File", ope: "", },
+                { type: "text", name: "is_default", label: "Is Default", ope: "", },
             ],
-            username: "",
-                password: "",
-                partner_id: "",
             table_fields: [
-                { text: "Username", prop: "username", name: "username", },
-                { 
-                    text: "Invoice", 
-                    prop: "[partner__first_name] [partner__last_name]", 
-                    name: "partner_id", 
-                    foreign: ['partner__first_name','partner__last_name',]
-                },
+                { text: "Title", prop: "title", name: "title", },
+                { text: "File Name", prop: "file_name", name: "file_name", },
+                { text: "Is File", prop: "is_file", name: "is_file", },
+                { text: "Is Default", prop: "is_default", name: "is_default", },
             ],
         };
     }
