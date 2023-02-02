@@ -4,6 +4,7 @@ namespace Modules\Mail\Entities;
 
 use Modules\Base\Entities\BaseModel;
 use Illuminate\Database\Schema\Blueprint;
+use Modules\Base\Classes\Migration;
 
 class Blacklist extends BaseModel
 {
