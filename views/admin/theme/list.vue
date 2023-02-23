@@ -1,35 +1,30 @@
 
 <template>
-    <table-render title="Mail Theme" :path_param="path_param" :search_fields="search_fields" :model="model"
-        :table_fields="table_fields"></table-render>
+    <table-render :path_param="['mail', 'theme']" title="Mail Theme" :table_fields="table_fields">
+        <template #header>
+            <th-render>Title</th-render>
+            <th-render>File Name</th-render>
+            <th-render>Is File</th-render>
+            <th-render>Is Default</th-render>
+        </template>
+
+        <template #body="{ item }">
+            <td>{{ item.title }}</td>
+            <td>{{ item.file_name }}</td>
+            <td>{{ item.is_file }}</td>
+            <td>{{ item.is_default }}</td>
+        </template>
+
+
+    </table-render>
 </template>
 
 <script>
 
 export default {
-    data () {
+    data() {
         return {
-            path_param: ["mail", "theme"],
-            model: {
-                id: "",
-                title: "",
-                file_name: "",
-                body: "",
-                is_file: "",
-                is_default: "",
-            },
-            search_fields: [
-                { type: "text", name: "title", label: "Title", ope: "", },
-                { type: "text", name: "file_name", label: "File Name", ope: "", },
-                { type: "text", name: "is_file", label: "Is File", ope: "", },
-                { type: "text", name: "is_default", label: "Is Default", ope: "", },
-            ],
-            table_fields: [
-                { text: "Title", prop: "title", name: "title", },
-                { text: "File Name", prop: "file_name", name: "file_name", },
-                { text: "Is File", prop: "is_file", name: "is_file", },
-                { text: "Is Default", prop: "is_default", name: "is_default", },
-            ],
+            table_fields: ['title', 'file_name', 'is_file', 'is_default'],
         };
     }
 };
