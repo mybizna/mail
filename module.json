@@ -5,6 +5,7 @@
     "keywords": [],
     "priority": 0,
     "providers": [
+        "Modules\\Mail\\Providers\\EventServiceProvider"
     ],
     "aliases": {},
     "files": [],
