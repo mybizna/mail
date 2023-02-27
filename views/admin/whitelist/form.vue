@@ -1,10 +1,12 @@
 <template>
-    <edit-render :path_param="path_param" :model="model">
+    <edit-render :path_param="['mail', 'whitelist']" :model="model">
 
         <div class="row">
             <div class="col-md-6">
                 <FormKit v-model="model.id" label="Id" id="id" type="hidden" validation="required" />
-                <FormKit v-model="model.contact_id" label="Contact" id="contact_id" type="text" validation="required" />
+                <FormKit button_label="Select Contact" id="contact_id" type="recordpicker"
+                    comp_url="mail/admin/contact/list.vue" v-model="model.contact_id" validation="required"
+                    inner-class="$reset formkit-inner" wrapper-class="$reset formkit-wrapper" />
             </div>
             <div class="col-md-6">
 
@@ -16,11 +18,10 @@
 
 <script>
 export default {
-    
+
     data() {
         return {
             id: null,
-            path_param: ["mail", "whitelist"],
             model: {
                 id: "",
                 contact_id: "",
