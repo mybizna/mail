@@ -7,7 +7,7 @@
         </template>
 
         <template #body="{ item }">
-            <td>{{ item.partner_id__mail_contact__name }} {{ item.partner_id__mail_contact__email }}</td>
+            <td>{{ item.contact_id__mail_contact__name }} {{ item.contact_id__mail_contact__email }}</td>
         </template>
 
     </table-render>
@@ -18,7 +18,7 @@
 export default {
     data() {
         return {
-            table_fields: ['partner_id__mail_contact__name', 'partner_id__mail_contact__email',],
+            table_fields: ['contact_id__mail_contact__name', 'contact_id__mail_contact__email',],
         };
     }
 };
