@@ -27,11 +27,13 @@ class SendEmail
         $title = $event->title;
         $message = $event->message;
         $contact = $event->contact;
+        $attachments = $event->attachments;
 
         sendmail([
             'to' =>  $contact->email,
             'subject' => $title,
             'message' => $message,
+            'attachments' => $attachments,
         ]);
 
     }
