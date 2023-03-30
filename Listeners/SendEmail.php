@@ -2,6 +2,7 @@
 
 namespace Modules\Mail\Listeners;
 
+use Modules\Mail\Entities\Queue;
 
 class SendEmail
 {
@@ -29,12 +30,22 @@ class SendEmail
         $contact = $event->contact;
         $attachments = $event->attachments;
 
-        sendmail([
-            'to' =>  $contact->email,
+        Queue::create([
             'subject' => $title,
-            'message' => $message,
-            'attachments' => $attachments,
+            'body' => $message,
+            'email' => $contact,
+            'attachments' => json_encode($attachments),
         ]);
+
+        /*
+        TODO: JOB Automation For Sending Email
+    sendmail([
+    'to' =>  $contact->email,
+    'subject' => $title,
+    'message' => $message,
+    'attachments' => $attachments,
+    ]);
+     */
 
     }
 }
