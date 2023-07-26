@@ -4,6 +4,8 @@ namespace Modules\Mail\Entities;
 
 use Illuminate\Database\Schema\Blueprint;
 use Modules\Base\Entities\BaseModel;
+use Modules\Core\Classes\Views\FormBuilder;
+use Modules\Core\Classes\Views\ListTable;
 
 class Signature extends BaseModel
 {
@@ -12,6 +14,47 @@ class Signature extends BaseModel
     public $migrationDependancy = [];
     protected $table = "mail_signature";
 
+    public function listTable()
+    {
+        // listing view fields
+        $fields = new ListTable();
+
+        $fields->name('title')->type('text')->ordering(true);
+        $fields->name('signature')->type('text')->ordering(true);
+        $fields->name('ordering')->type('text')->ordering(true);
+        $fields->name('published')->type('switch')->ordering(true);
+
+        return $fields;
+
+    }
+
+    public function formBuilder()
+    {
+        // listing view fields
+        $fields = new FormBuilder();
+
+        $fields->name('title')->type('text')->group('w-1/2');
+        $fields->name('signature')->type('text')->group('w-1/2');
+        $fields->name('ordering')->type('text')->group('w-1/2');
+        $fields->name('published')->type('switch')->group('w-1/2');
+
+        return $fields;
+
+    }
+
+    public function filter()
+    {
+        // listing view fields
+        $fields = new FormBuilder();
+
+        $fields->name('title')->type('text')->group('w-1/6');
+        $fields->name('signature')->type('text')->group('w-1/6');
+        $fields->name('ordering')->type('text')->group('w-1/6');
+        $fields->name('published')->type('switch')->group('w-1/6');
+
+        return $fields;
+
+    }
     /**
      * List of fields for managing postings.
      *
