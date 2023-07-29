@@ -1,5 +1,7 @@
 <?php
 
+/** @var \Modules\Base\Classes\Fetch\Rights $this */
+
 $this->add_right("mail", "blacklist", "administrator", view:true, add:true, edit:true, delete:true);
 $this->add_right("mail", "blacklist", "manager", view:true, add:true, edit:true, delete:true);
 $this->add_right("mail", "blacklist", "supervisor", view:true, add:true, edit:true, delete:true);
