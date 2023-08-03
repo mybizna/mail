@@ -12,22 +12,30 @@ class Signature extends BaseModel
 
     /**
      * The fields that can be filled
+     *
      * @var array<string>
      */
     protected $fillable = ['title', 'signature', 'ordering', 'published'];
 
     /**
      * List of tables names that are need in this model during migration.
+     *
      * @var array<string>
      */
     public array $migrationDependancy = [];
 
     /**
      * The table associated with the model.
+     *
      * @var string
      */
     protected $table = "mail_signature";
 
+    /**
+     * Function for defining list of fields in table view.
+     *
+     * @return ListTable
+     */
     public function listTable(): ListTable
     {
         // listing view fields
@@ -42,7 +50,12 @@ class Signature extends BaseModel
 
     }
 
-    public function formBuilder()
+    /**
+     * Function for defining list of fields in form view.
+     * 
+     * @return FormBuilder
+     */
+    public function formBuilder(): FormBuilder
     {
         // listing view fields
         $fields = new FormBuilder();
@@ -55,6 +68,12 @@ class Signature extends BaseModel
         return $fields;
 
     }
+
+    /**
+     * Function for defining list of fields in filter view.
+     * 
+     * @return FormBuilder
+     */
 
     public function filter(): FormBuilder
     {
@@ -75,7 +94,7 @@ class Signature extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function migration(Blueprint $table)
+    public function migration(Blueprint $table): void
     {
         $table->increments('id');
         $table->char('title', 255);

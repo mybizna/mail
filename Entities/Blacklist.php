@@ -12,22 +12,30 @@ class Blacklist extends BaseModel
 {
     /**
      * The fields that can be filled
+     *
      * @var array<string>
      */
     protected $fillable = ['contact_id'];
 
     /**
      * List of tables names that are need in this model during migration.
+     *
      * @var array<string>
      */
     public array $migrationDependancy = ['mail_contact'];
 
     /**
      * The table associated with the model.
+     *
      * @var string
      */
     protected $table = "mail_blacklist";
 
+    /**
+     * Function for defining list of fields in table view.
+     *
+     * @return ListTable
+     */
     public function listTable(): ListTable
     {
         // listing view fields
@@ -39,7 +47,12 @@ class Blacklist extends BaseModel
 
     }
 
-    public function formBuilder()
+    /**
+     * Function for defining list of fields in form view.
+     * 
+     * @return FormBuilder
+     */
+    public function formBuilder(): FormBuilder
     {
         // listing view fields
         $fields = new FormBuilder();
@@ -50,6 +63,11 @@ class Blacklist extends BaseModel
 
     }
 
+    /**
+     * Function for defining list of fields in filter view.
+     * 
+     * @return FormBuilder
+     */
     public function filter(): FormBuilder
     {
         // listing view fields
@@ -66,13 +84,20 @@ class Blacklist extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function migration(Blueprint $table)
+    public function migration(Blueprint $table): void
     {
         $table->increments('id');
         $table->foreignId('contact_id');
     }
 
-    public function post_migration(Blueprint $table)
+    /**
+     * Handle post migration processes for adding foreign keys.
+     *
+     * @param Blueprint $table
+     *
+     * @return void
+     */
+    public function post_migration(Blueprint $table): void
     {
         Migration::addForeign($table, 'mail_contact', 'contact_id');
     }

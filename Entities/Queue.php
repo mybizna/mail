@@ -12,22 +12,30 @@ class Queue extends BaseModel
 {
     /**
      * The fields that can be filled
+     *
      * @var array<string>
      */
     protected $fillable = ['subject', 'body', 'email'];
 
     /**
      * List of tables names that are need in this model during migration.
+     *
      * @var array<string>
      */
     public array $migrationDependancy = [];
 
     /**
      * The table associated with the model.
+     *
      * @var string
      */
     protected $table = "mail_queue";
 
+    /**
+     * Function for defining list of fields in table view.
+     *
+     * @return ListTable
+     */
     public function listTable(): ListTable
     {
         // listing view fields
@@ -40,7 +48,12 @@ class Queue extends BaseModel
 
     }
 
-    public function formBuilder()
+    /**
+     * Function for defining list of fields in form view.
+     * 
+     * @return FormBuilder
+     */
+    public function formBuilder(): FormBuilder
     {
         // listing view fields
         $fields = new FormBuilder();
@@ -53,6 +66,11 @@ class Queue extends BaseModel
 
     }
 
+    /**
+     * Function for defining list of fields in filter view.
+     * 
+     * @return FormBuilder
+     */
     public function filter(): FormBuilder
     {
         // listing view fields
@@ -70,7 +88,7 @@ class Queue extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function migration(Blueprint $table)
+    public function migration(Blueprint $table): void
     {
         $table->increments('id');
         $table->string('subject');
