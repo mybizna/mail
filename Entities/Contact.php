@@ -43,6 +43,8 @@ class Contact extends BaseModel
      */
     public function fields(Blueprint $table): void
     {
+        $this->fields = $table ?? new Blueprint($this->table);
+        
         $this->fields->increments('id')->html('text');
         $this->fields->char('name', 255)->html('text');
         $this->fields->char('email', 255)->html('email');
