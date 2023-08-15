@@ -41,7 +41,7 @@ class Theme extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function fields(Blueprint $table): void
+    public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
         
@@ -51,7 +51,20 @@ class Theme extends BaseModel
         $this->fields->string('body')->nullable()->html('textarea');
         $this->fields->tinyInteger('is_file')->default(true)->html('switch');
         $this->fields->tinyInteger('is_default')->default(true)->html('switch');
+    }
 
+    /**
+     * List of structure for this model.
+     */
+    public function structure($structure): array
+    {
+        $structure = [
+            'table' => ['title', 'file_name', 'is_file', 'is_default'],
+            'filter' => ['title', 'file_name', 'is_file', 'is_default'],
+        ];
+
+        return $structure;
+    
     }
 
 }

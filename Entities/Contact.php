@@ -41,14 +41,27 @@ class Contact extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function fields(Blueprint $table): void
+    public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
-        
+
         $this->fields->increments('id')->html('text');
         $this->fields->char('name', 255)->html('text');
         $this->fields->char('email', 255)->html('email');
         $this->fields->integer('ordering')->default(10)->html('number');
         $this->fields->tinyInteger('published')->default(true)->html('switch');
+    }
+
+    /**
+     * List of structure for this model.
+     */
+    public function structure($structure): array
+    {
+        $structure = [
+            'table' => ['name', 'email', 'published'],
+            'filter' => ['name', 'email', 'published'],
+        ];
+
+        return $structure;
     }
 }

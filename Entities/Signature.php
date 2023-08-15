@@ -42,7 +42,7 @@ class Signature extends BaseModel
      * @param Blueprint $table
      * @return void
      */
-    public function fields(Blueprint $table): void
+    public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
         
@@ -51,5 +51,18 @@ class Signature extends BaseModel
         $this->fields->string('signature')->html('text');
         $this->fields->integer('ordering')->default(10)->html('number');
         $this->fields->tinyInteger('published')->default(true)->html('switch');
+    }
+
+    /**
+     * List of structure for this model.
+     */
+    public function structure($structure): array
+    {
+        $structure = [
+            'table' => ['title', 'signature', 'ordering', 'published'],
+            'filter' => ['title', 'signature', 'published'],
+        ];
+
+        return $structure;
     }
 }
