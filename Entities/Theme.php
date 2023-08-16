@@ -44,7 +44,7 @@ class Theme extends BaseModel
     public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
-        
+
         $this->fields->increments('id')->html('text');
         $this->fields->char('title', 255)->html('text');
         $this->fields->char('file_name', 255)->html('text');
@@ -58,13 +58,20 @@ class Theme extends BaseModel
      */
     public function structure($structure): array
     {
+
         $structure = [
             'table' => ['title', 'file_name', 'is_file', 'is_default'],
+            'form' => [
+                ['label' => 'Title', 'class' => 'w-full', 'fields' => ['title']],
+                ['label' => 'Seting', 'class' => 'w-1/2', 'fields' => ['is_file', 'is_default']],
+                ['label' => 'Seting', 'class' => 'w-1/2', 'fields' => ['file_name']],
+                ['label' => 'Body', 'class' => 'w-full', 'fields' => ['body']],
+            ],
             'filter' => ['title', 'file_name', 'is_file', 'is_default'],
         ];
 
         return $structure;
-    
+
     }
 
 }

@@ -45,7 +45,7 @@ class Signature extends BaseModel
     public function fields(Blueprint $table = null): void
     {
         $this->fields = $table ?? new Blueprint($this->table);
-        
+
         $this->fields->increments('id')->html('text');
         $this->fields->char('title', 255)->html('text');
         $this->fields->string('signature')->html('text');
@@ -60,6 +60,11 @@ class Signature extends BaseModel
     {
         $structure = [
             'table' => ['title', 'signature', 'ordering', 'published'],
+            'form' => [
+                ['label' => 'Title', 'class' => 'w-full', 'fields' => ['title']],
+                ['label' => 'Signature', 'class' => 'w-1/2', 'fields' => ['signature', 'ordering']],
+                ['label' => 'Setting', 'class' => 'w-1/2', 'fields' => ['published']],
+            ],
             'filter' => ['title', 'signature', 'published'],
         ];
 
