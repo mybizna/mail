@@ -6,7 +6,7 @@ $this->add_module_info("mail", [
     'title' => 'Mail',
     'description' => 'Mail',
     'icon' => 'fas fa-envelope',
-    'path' => '/mail/admin/subscriber',
+    'path' => '/mail/admin/contact',
     'class_str' => 'text-secondary border-secondary',
     'position' => 3,
 ]);
