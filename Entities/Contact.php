@@ -57,10 +57,8 @@ class Contact extends BaseModel
      */
     public function structure($structure): array
     {
-        $structure = [
-            'table' => ['name', 'email', 'published'],
-            'filter' => ['name', 'email', 'published'],
-        ];
+        $structure['table'] = ['name', 'email', 'published'];
+        $structure['filter'] = ['name', 'email', 'published'];
 
         return $structure;
     }

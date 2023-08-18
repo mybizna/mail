@@ -58,15 +58,13 @@ class Signature extends BaseModel
      */
     public function structure($structure): array
     {
-        $structure = [
-            'table' => ['title', 'signature', 'ordering', 'published'],
-            'form' => [
-                ['label' => 'Title', 'class' => 'w-full', 'fields' => ['title']],
-                ['label' => 'Signature', 'class' => 'w-1/2', 'fields' => ['signature', 'ordering']],
-                ['label' => 'Setting', 'class' => 'w-1/2', 'fields' => ['published']],
-            ],
-            'filter' => ['title', 'signature', 'published'],
+        $structure['table'] = ['title', 'signature', 'ordering', 'published'];
+        $structure['form'] = [
+            ['label' => 'Title', 'class' => 'col-span-full', 'fields' => ['title']],
+            ['label' => 'Signature', 'class' => 'col-span-6', 'fields' => ['signature', 'ordering']],
+            ['label' => 'Setting', 'class' => 'col-span-6', 'fields' => ['published']],
         ];
+        $structure['filter'] = ['title', 'signature', 'published'];
 
         return $structure;
     }

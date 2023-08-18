@@ -58,14 +58,12 @@ class Queue extends BaseModel
      */
     public function structure($structure): array
     {
-        $structure = [
-            'table' => ['subject', 'body', 'email'],
-            'form' => [
-                ['label' => 'Subject', 'class' => 'w-full', 'fields' => ['subject', 'email']],
-                ['label' => 'Body', 'class' => 'w-full', 'fields' => ['body']],
-            ],
-            'filter' => ['subject', 'email'],
+        $structure['table'] = ['subject', 'body', 'email'];
+        $structure['form'] = [
+            ['label' => 'Subject', 'class' => 'col-span-full', 'fields' => ['subject', 'email']],
+            ['label' => 'Body', 'class' => 'col-span-full', 'fields' => ['body']],
         ];
+        $structure['filter'] = ['subject', 'email'];
 
         return $structure;
     }
