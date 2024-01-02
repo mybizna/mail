@@ -13,7 +13,7 @@
     {
       "name": "Dedan Irungu",
       "email": "dedanirungu@gmail.com"
-    }
+    } 
   ],
   "require": {
     "mybizna/core": ">=23.06.0"
