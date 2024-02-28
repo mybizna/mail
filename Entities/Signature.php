@@ -61,8 +61,8 @@ class Signature extends BaseModel
         $structure['table'] = ['title', 'signature', 'ordering', 'published'];
         $structure['form'] = [
             ['label' => 'Title', 'class' => 'col-span-full', 'fields' => ['title']],
-            ['label' => 'Signature', 'class' => 'col-span-full md:col-span-6', 'fields' => ['signature', 'ordering']],
-            ['label' => 'Setting', 'class' => 'col-span-full md:col-span-6ull md:col-span-6ull md:col-span-6ull md:col-span-6', 'fields' => ['published']],
+            ['label' => 'Signature', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['signature', 'ordering']],
+            ['label' => 'Setting', 'class' => 'col-span-full md:col-span-6ull md:col-span-6ull md:col-span-6ull  md:col-span-6 md:pr-2', 'fields' => ['published']],
         ];
         $structure['filter'] = ['title', 'signature', 'published'];
 

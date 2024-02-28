@@ -62,8 +62,8 @@ class Theme extends BaseModel
         $structure['table'] = ['title', 'file_name', 'is_file', 'is_default'];
         $structure['form'] = [
             ['label' => 'Title', 'class' => 'col-span-full', 'fields' => ['title']],
-            ['label' => 'Seting', 'class' => 'col-span-full md:col-span-6', 'fields' => ['is_file', 'is_default']],
-            ['label' => 'Seting', 'class' => 'col-span-full md:col-span-6', 'fields' => ['file_name']],
+            ['label' => 'Seting', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['is_file', 'is_default']],
+            ['label' => 'Seting', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['file_name']],
             ['label' => 'Body', 'class' => 'col-span-full', 'fields' => ['body']],
         ];
         $structure['filter'] = ['title', 'file_name', 'is_file', 'is_default'];
