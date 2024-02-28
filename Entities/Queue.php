@@ -60,8 +60,8 @@ class Queue extends BaseModel
     {
         $structure['table'] = ['subject', 'body', 'email'];
         $structure['form'] = [
-            ['label' => 'Subject', 'class' => 'col-span-full', 'fields' => ['subject', 'email']],
-            ['label' => 'Body', 'class' => 'col-span-full', 'fields' => ['body']],
+            ['label' => 'Queue Subject', 'class' => 'col-span-full', 'fields' => ['subject', 'email']],
+            ['label' => 'Queue Body', 'class' => 'col-span-full', 'fields' => ['body']],
         ];
         $structure['filter'] = ['subject', 'email'];
 
