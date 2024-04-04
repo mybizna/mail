@@ -16,7 +16,7 @@
     }
   ],
   "require": {
-    "mybizna/core": ">=24.3.005"
+    "mybizna/partner": ">=24.2.009"
   },
   "extra": {
     "laravel": {
