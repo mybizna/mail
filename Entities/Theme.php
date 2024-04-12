@@ -72,4 +72,15 @@ class Theme extends BaseModel
 
     }
 
+
+    /**
+     * Define rights for this model.
+     *
+     * @return array
+     */
+    public function rights(): array
+    {
+
+    }
+
 }
