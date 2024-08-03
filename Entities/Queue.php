@@ -16,20 +16,6 @@ class Queue extends BaseModel
     protected $fillable = ['subject', 'body', 'email'];
 
     /**
-     * The fields that are to be render when performing relationship queries.
-     *
-     * @var array<string>
-     */
-    public $rec_names = ['subject'];
-
-    /**
-     * List of tables names that are need in this model during migration.
-     *
-     * @var array<string>
-     */
-    public array $migrationDependancy = [];
-
-    /**
      * The table associated with the model.
      *
      * @var string
@@ -53,35 +39,8 @@ class Queue extends BaseModel
         $this->fields->string('attachment')->html('file');
     }
 
-    /**
-     * List of structure for this model.
-     */
-    public function structure($structure): array
-    {
-        $structure['table'] = ['subject', 'body', 'email'];
-        $structure['form'] = [
-            ['label' => 'Queue Subject', 'class' => 'col-span-full', 'fields' => ['subject', 'email']],
-            ['label' => 'Queue Body', 'class' => 'col-span-full', 'fields' => ['body']],
-        ];
-        $structure['filter'] = ['subject', 'email'];
+   
 
-        return $structure;
-    }
-
-    /**
-     * Define rights for this model.
-     *
-     * @return array
-     */
-    public function rights(): array
-    {
-        $rights = parent::rights();
-
-        $rights['staff'] = ['view' => true];
-        $rights['registered'] = ['view' => true];
-        $rights['guest'] = [];
-
-        return $rights;
-    }
+ 
 
 }

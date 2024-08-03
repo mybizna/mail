@@ -15,20 +15,6 @@ class Theme extends BaseModel
     protected $fillable = ['title', 'file_name', 'body', 'is_file', 'is_default'];
 
     /**
-     * The fields that are to be render when performing relationship queries.
-     *
-     * @var array<string>
-     */
-    public $rec_names = ['title'];
-
-    /**
-     * List of tables names that are need in this model during migration.
-     *
-     * @var array<string>
-     */
-    public array $migrationDependancy = [];
-
-    /**
      * The table associated with the model.
      *
      * @var string
@@ -53,40 +39,9 @@ class Theme extends BaseModel
         $this->fields->tinyInteger('is_default')->default(true)->html('switch');
     }
 
-    /**
-     * List of structure for this model.
-     */
-    public function structure($structure): array
-    {
-
-        $structure['table'] = ['title', 'file_name', 'is_file', 'is_default'];
-        $structure['form'] = [
-            ['label' => 'Theme Title', 'class' => 'col-span-full', 'fields' => ['title']],
-            ['label' => 'Theme Detail', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['is_file', 'is_default']],
-            ['label' => 'Theme Seting', 'class' => 'col-span-full  md:col-span-6 md:pr-2', 'fields' => ['file_name']],
-            ['label' => 'Theme Body', 'class' => 'col-span-full', 'fields' => ['body']],
-        ];
-        $structure['filter'] = ['title', 'file_name', 'is_file', 'is_default'];
-
-        return $structure;
-
-    }
 
 
-    /**
-     * Define rights for this model.
-     *
-     * @return array
-     */
-    public function rights(): array
-    {
-        $rights = parent::rights();
 
-        $rights['staff'] = ['view' => true];
-        $rights['registered'] = ['view' => true];
-        $rights['guest'] = [];
 
-        return $rights;
-    }
 
 }
