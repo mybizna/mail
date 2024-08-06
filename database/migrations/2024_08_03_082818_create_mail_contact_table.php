@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('mail_contact', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->string('name');
+            $table->string('email');
+            $table->integer('ordering')->default(10);
+            $table->tinyInteger('published')->default(true);
+
             $table->timestamps();
         });
     }

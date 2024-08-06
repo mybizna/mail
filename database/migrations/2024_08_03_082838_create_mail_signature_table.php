@@ -13,7 +13,12 @@ return new class extends Migration
     {
         Schema::create('mail_signature', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->string('title', 255);
+            $table->string('signature');
+            $table->integer('ordering')->default(10);
+            $table->tinyInteger('published')->default(true);
+
             $table->timestamps();
         });
     }

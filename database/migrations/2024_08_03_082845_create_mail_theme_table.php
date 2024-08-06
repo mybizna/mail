@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('mail_theme', function (Blueprint $table) {
             $table->id();
-            
+
+            $table->string('title');
+            $table->string('file_name');
+            $table->text('body')->nullable();
+            $table->tinyInteger('is_file')->default(1);
+            $table->tinyInteger('is_default')->default(1);
+
             $table->timestamps();
         });
     }

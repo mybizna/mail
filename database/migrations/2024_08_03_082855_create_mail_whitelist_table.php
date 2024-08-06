@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('mail_whitelist', function (Blueprint $table) {
             $table->id();
+
+            $table->foreignId('contact_id')->nullable();
+
             
             $table->timestamps();
         });
