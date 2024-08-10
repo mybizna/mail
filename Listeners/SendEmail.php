@@ -2,7 +2,7 @@
 
 namespace Modules\Mail\Listeners;
 
-use Modules\Mail\Entities\Queue;
+use Modules\Mail\Models\Queue;
 
 class SendEmail
 {
@@ -38,7 +38,7 @@ class SendEmail
         ]);
 
         /*
-        TODO: JOB Automation For Sending Email
+    TODO: JOB Automation For Sending Email
     sendmail([
     'to' =>  $contact->email,
     'subject' => $title,

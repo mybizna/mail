@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\Mail\Entities;
+namespace Modules\Mail\Models;
 
-use Modules\Base\Entities\BaseModel;
+use Modules\Base\Models\BaseModel;
 
 class Queue extends BaseModel
 {
