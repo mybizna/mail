@@ -26,7 +26,14 @@
   },
   "autoload": {
     "psr-4": {
-      "Modules\\Mail\\": ""
+      "Modules\\Mail\\": "app/",
+      "Modules\\Mail\\Database\\Factories\\": "database/factories/",
+      "Modules\\Mail\\Database\\Seeders\\": "database/seeders/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Modules\\Mail\\Tests\\": "tests/"
     }
   }
 }
