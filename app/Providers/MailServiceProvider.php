@@ -9,7 +9,7 @@ class MailServiceProvider extends ServiceProvider
 {
     protected string $moduleName = 'Mail';
 
-    protected string $moduleNameLower = 'Mail';
+    protected string $moduleNameLower = 'mail';
 
     /**
      * Boot the application events.

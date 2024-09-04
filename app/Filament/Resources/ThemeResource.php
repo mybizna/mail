@@ -2,9 +2,6 @@
 
 namespace Modules\Mail\Filament\Resources;
 
-use Modules\Mail\Filament\Resources\ThemeResource\Pages;
-use Modules\Mail\Filament\Resources\ThemeResource\RelationManagers;
-use Modules\Mail\Models\Theme;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,10 +9,16 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Mail\Filament\Resources\ThemeResource\Pages;
+use Modules\Mail\Models\Theme;
 
 class ThemeResource extends Resource
 {
     protected static ?string $model = Theme::class;
+
+    protected static ?string $slug = 'mail/theme';
+
+    protected static ?string $navigationGroup = 'Mail';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

@@ -2,9 +2,6 @@
 
 namespace Modules\Mail\Filament\Resources;
 
-use Modules\Mail\Filament\Resources\WhitelistResource\Pages;
-use Modules\Mail\Filament\Resources\WhitelistResource\RelationManagers;
-use Modules\Mail\Models\Whitelist;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -12,10 +9,16 @@ use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Modules\Mail\Filament\Resources\WhitelistResource\Pages;
+use Modules\Mail\Models\Whitelist;
 
 class WhitelistResource extends Resource
 {
     protected static ?string $model = Whitelist::class;
+
+    protected static ?string $slug = 'mail/whitelist';
+
+    protected static ?string $navigationGroup = 'Mail';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
