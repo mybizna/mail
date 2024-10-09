@@ -4,15 +4,12 @@ namespace Modules\Mail\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Modules\Mail\Filament\Resources\ThemeResource\Pages;
+use Modules\Base\Filament\Resources\BaseResource;
 use Modules\Mail\Models\Theme;
 
-class ThemeResource extends Resource
+class ThemeResource extends BaseResource
 {
     protected static ?string $model = Theme::class;
 
@@ -83,27 +80,4 @@ class ThemeResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListThemes::route('/'),
-            'create' => Pages\CreateTheme::route('/create'),
-            'edit' => Pages\EditTheme::route('/{record}/edit'),
-        ];
-    }
-
-    public static function getEloquentQuery(): Builder
-    {
-        return parent::getEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
-    }
 }

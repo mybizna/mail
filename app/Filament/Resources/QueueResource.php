@@ -4,15 +4,12 @@ namespace Modules\Mail\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Modules\Mail\Filament\Resources\QueueResource\Pages;
+use Modules\Base\Filament\Resources\BaseResource;
 use Modules\Mail\Models\Queue;
 
-class QueueResource extends Resource
+class QueueResource extends BaseResource
 {
     protected static ?string $model = Queue::class;
 
@@ -78,27 +75,4 @@ class QueueResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListQueues::route('/'),
-            'create' => Pages\CreateQueue::route('/create'),
-            'edit' => Pages\EditQueue::route('/{record}/edit'),
-        ];
-    }
-
-    public static function getEloquentQuery(): Builder
-    {
-        return parent::getEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
-    }
 }

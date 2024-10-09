@@ -4,15 +4,12 @@ namespace Modules\Mail\Filament\Resources;
 
 use Filament\Forms;
 use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Modules\Mail\Filament\Resources\BlacklistResource\Pages;
+use Modules\Base\Filament\Resources\BaseResource;
 use Modules\Mail\Models\Blacklist;
 
-class BlacklistResource extends Resource
+class BlacklistResource extends BaseResource
 {
     protected static ?string $model = Blacklist::class;
 
@@ -63,27 +60,4 @@ class BlacklistResource extends Resource
             ]);
     }
 
-    public static function getRelations(): array
-    {
-        return [
-            //
-        ];
-    }
-
-    public static function getPages(): array
-    {
-        return [
-            'index' => Pages\ListBlacklists::route('/'),
-            'create' => Pages\CreateBlacklist::route('/create'),
-            'edit' => Pages\EditBlacklist::route('/{record}/edit'),
-        ];
-    }
-
-    public static function getEloquentQuery(): Builder
-    {
-        return parent::getEloquentQuery()
-            ->withoutGlobalScopes([
-                SoftDeletingScope::class,
-            ]);
-    }
 }
