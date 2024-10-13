@@ -7,7 +7,7 @@ use Filament\Forms\Form;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Modules\Base\Filament\Resources\BaseResource;
-use Modules\Base\Filament\Resources\Pages;
+use Modules\Mail\Filament\Resources\ThemeResource\Pages;
 use Modules\Mail\Models\Theme;
 
 class ThemeResource extends BaseResource
@@ -84,12 +84,10 @@ class ThemeResource extends BaseResource
     public static function getPages(): array
     {
 
-        Pages\ListBase::setResource(static::class);
-
         return [
-            'index' => Pages\ListBase::route('/'),
-            'create' => Pages\CreateBase::route('/create'),
-            'edit' => Pages\EditBase::route('/{record}/edit'),
+            'index' => Pages\Listing::route('/'),
+            'create' => Pages\Creating::route('/create'),
+            'edit' => Pages\Editing::route('/{record}/edit'),
         ];
     }
 }
