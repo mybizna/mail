@@ -25,7 +25,6 @@ class Signature extends BaseModel
 
     public function migration(Blueprint $table): void
     {
-        $table->id();
 
         $table->string('title', 255);
         $table->string('signature');

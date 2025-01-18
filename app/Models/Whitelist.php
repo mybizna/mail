@@ -34,7 +34,6 @@ class Whitelist extends BaseModel
 
     public function migration(Blueprint $table): void
     {
-        $table->id();
 
         $table->foreignId('contact_id')->nullable()->constrained(table: 'mail_contact')->onDelete('set null');
 
