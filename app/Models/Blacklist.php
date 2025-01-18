@@ -30,4 +30,9 @@ class Blacklist extends BaseModel
         return $this->belongsTo(Contact::class);
     }
 
+
+    public function migration(Blueprint $table)
+    {
+
+    }
 }

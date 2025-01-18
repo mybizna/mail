@@ -3,6 +3,7 @@
 namespace Modules\Mail\Models;
 
 use Modules\Base\Models\BaseModel;
+use Illuminate\Database\Schema\Blueprint;
 
 class Theme extends BaseModel
 {
@@ -20,4 +21,16 @@ class Theme extends BaseModel
      */
     protected $table = "mail_theme";
 
+
+    public function migration(Blueprint $table): void
+    {
+        $table->id();
+
+        $table->string('title');
+        $table->string('file_name');
+        $table->text('body')->nullable();
+        $table->tinyInteger('is_file')->default(1);
+        $table->tinyInteger('is_default')->default(1);
+
+    }
 }

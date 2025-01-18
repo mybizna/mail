@@ -3,6 +3,7 @@
 namespace Modules\Mail\Models;
 
 use Modules\Base\Models\BaseModel;
+use Illuminate\Database\Schema\Blueprint;
 
 class Queue extends BaseModel
 {
@@ -20,4 +21,14 @@ class Queue extends BaseModel
      */
     protected $table = "mail_queue";
 
+
+    public function migration(Blueprint $table): void
+    {
+        $table->id();
+
+        $table->string('subject');
+        $table->string('body');
+        $table->string('email');
+        $table->string('attachment')->nullable();
+    }
 }
