@@ -34,8 +34,11 @@ class Whitelist extends BaseModel
 
     public function migration(Blueprint $table): void
     {
+        $table->unsignedBigInteger('contact_id')->nullable();
+    }
 
-        $table->foreignId('contact_id')->nullable()->constrained(table: 'mail_contact')->onDelete('set null');
-
+    public function post_migration(Blueprint $table): void
+    {
+        $table->foreign('contact_id')->references('id')->on('mail_contact')->onDelete('set null');
     }
 }
